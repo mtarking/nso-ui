@@ -422,7 +422,7 @@ class ApiPackagesNSO(BaseAPI):
 
         # Copy files to local directory
         command = "scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -r " \
-                  + self.user + "@nso.lwr04.cisco.com:" + self.tmp_web_ui_packages_dir + "/packages " \
+                  + self.user + "@" + self.ip + self.tmp_web_ui_packages_dir + "/packages " \
                   + DIR_PATH + self.nso_data_dir
         ssh_pexpect = pexpect.spawn(command=command)
         ssh_pexpect.logfile = sys.stdout
